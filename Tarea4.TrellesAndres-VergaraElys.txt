@@ -1,0 +1,86 @@
+
+package tarea4;
+
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Tarea4 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char eleccion;
+
+        do {
+            System.out.println("Seleccione qué desea hacer: \n");
+            System.out.println("A. Factorial");
+            System.out.println("B. Adivinanza");
+            System.out.println("C. Potencia");
+            System.out.println("Q:Salir ");
+
+            eleccion = scanner.nextLine().toUpperCase().charAt(0);
+
+            switch (eleccion) {
+                case 'A':
+                    System.out.println("\nIngrese el número del cual desea el factorial: ");
+                    int nf1 = scanner.nextInt();
+                    scanner.nextLine();
+                    if (nf1 == 0) {
+                        System.out.println("El factorial de 0 es 1");
+                    } else {
+                        System.out.println("El factorial de " + nf1 + " es " + factorial(nf1));
+                    }
+                    break;
+                case 'B':
+                    System.out.println("\nAdivine el número del 1 al 10");
+                    int num1 = scanner.nextInt();
+                    scanner.nextLine();
+                    int aleatorio = (int)(Math.random()*10); //Genera un número entre 0-10
+                    int contador = 1; // Inicializa el contador en 1
+
+                    while (num1 != aleatorio) {         //Realiza la operación 
+                        if (aleatorio > num1){
+                            System.out.println("Su número es menor, digite un número mayor");
+                        } else {
+                            System.out.println("Su número es mayor, digite un número menor");
+                        }
+                        num1 = scanner.nextInt();
+                        scanner.nextLine();
+                        contador++;
+                    }
+                    System.out.println("Adivinaste el número en " + contador + " intentos");
+                    break;
+                case 'C':
+                   System.out.println("\nInserte la base:");
+                   int base = scanner.nextInt();
+                   scanner.nextLine();
+                   System.out.println("\nInserte el exponente:");
+                   int exp = scanner.nextInt();
+                   
+                  int resultado = 1;
+                  
+                  for(int i = 0; i < exp; i++){
+                      resultado *= base;
+                  } 
+                  
+                  System.out.println(base + " elevado a " + exp + " es igual a " + resultado);
+                   
+                    break;
+                case 'Q':
+                    System.out.println("Adiós!");
+                    break;
+                default:
+                    System.out.println("Opción inválida");
+                    break;
+            }
+        } while (eleccion != 'Q');
+    }
+
+    public static int factorial(int nf1) {
+        if (nf1 == 0) {
+            return 1;
+        } else {
+            return nf1*factorial(nf1-1);
+        }
+    
+    }
+}
