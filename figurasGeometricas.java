@@ -1,3 +1,8 @@
+/*
+Este programa permite calcular el área y perimetro de muchas figuras geometricas, así como el radio del círculo y la 
+hipotenusa del Triangulo Rectangulo.
+*/
+
 package pruebaparcial2;
 
 import java.util.Scanner;
